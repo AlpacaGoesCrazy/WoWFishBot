@@ -19,7 +19,7 @@ namespace WindowsFormsApplication3
 
         public Bitmap ConvertToFormat(System.Drawing.Image image, System.Drawing.Imaging.PixelFormat format)
         {
-            GC.Collect(); //not the best way to collect 'copy' but it works
+            GC.Collect(); //consider changing if better way found
             GC.WaitForPendingFinalizers();
             Bitmap copy = new Bitmap(image.Width, image.Height, format);
             using (Graphics gr = Graphics.FromImage(copy))
